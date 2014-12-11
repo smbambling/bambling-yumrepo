@@ -33,18 +33,18 @@ class yumrepo::params {
   $puppetlabs_deps_descr       = "Puppet Labs Dependencies El ${os_maj_release} - \$basearch"
 
   # The Foreman Parameters
-  $foreman_url         = "http://yum.theforeman.org/releases/latest/el${os_maj_release}/$basearch"
+  $foreman_url         = "http://yum.theforeman.org/releases/latest/el${os_maj_release}/${::architecture}"
   $foreman_enabled     = '1'
   $foreman_gpgcheck    = '1'
   $foreman_includepkgs = absent
   $foreman_exclude     = absent
   $foreman_descr       = "The Foreman Latest El ${os_maj_release} - \$basearch"
 
-  $foreman_plugins_url         = "http://yum.theforeman.org/plugins/latest/el${os_maj_release}/$basearch"
+  $foreman_plugins_url         = "http://yum.theforeman.org/plugins/latest/el${os_maj_release}/${::architecture}"
   $foreman_plugins_enabled     = '1'
   $foreman_plugins_gpgcheck    = '1'
   $foreman_plugins_includepkgs = absent
   $foreman_plugins_exclude     = absent
-  $foreman_plugins_descr       = "The Foreman Plugings Latest El ${os_maj_release} - \$basearch" 
+  $foreman_plugins_descr       = "The Foreman Plugings Latest El ${os_maj_release} - \$basearch"
 
 }
