@@ -1,0 +1,14 @@
+{
+  "name": "bambling-yumrepo",
+  "version": "0.1.0",
+  "author": "Steven Bambling",
+  "summary": "Add and Manage YUM Repositories in /etc/yum.repos.d/ on RHEL/CentOS Systems",
+  "license": "Apache 2.0",
+  "source": "githuburl",
+  "project_page": "githuburl:README",
+  "issues_url": "githuburl:ISSUES",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
