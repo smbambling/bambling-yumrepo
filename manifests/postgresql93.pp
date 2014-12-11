@@ -1,11 +1,11 @@
 # Add the Extra Packages for Enterprise Linux Repository
-class yumrepo::postgresql (
-  $postgresql_url         = $yumrepo::params::postgresql_url,
-  $postgresql_enabled     = $yumrepo::params::postgresql_enabled,
-  $postgresql_gpgcheck    = $yumrepo::params::postgresql_gpgcheck,
-  $postgresql_includepkgs = $yumrepo::params::postgresql_includepkgs,
-  $postgresql_exclude     = $yumrepo::params::postgresql_exclude,
-  $postgresql_descr       = $yumrepo::params::postgresql_descr,
+class yumrepo::postgresql_9_3 (
+  $postgresql_9_3_url         = $yumrepo::params::postgresql_9_3_url,
+  $postgresql_9_3_enabled     = $yumrepo::params::postgresql_9_3_enabled,
+  $postgresql_9_3_gpgcheck    = $yumrepo::params::postgresql_9_3_gpgcheck,
+  $postgresql_9_3_includepkgs = $yumrepo::params::postgresql_9_3_includepkgs,
+  $postgresql_9_3_exclude     = $yumrepo::params::postgresql_9_3_exclude,
+  $postgresql_9_3_descr       = $yumrepo::params::postgresql_9_3_descr,
 ) inherits yumrepo::params {
   
   file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93':
@@ -13,21 +13,21 @@ class yumrepo::postgresql (
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => 'puppet:///modules/yumrepo/postgresql/RPM-GPG-KEY-PGDG-93',
+    source => 'puppet:///modules/yumrepo/postgresql_9_3/RPM-GPG-KEY-PGDG-93',
   }
 
   yumrepo::rpm_gpg_key { 'PGDG-93':
     path   => '/etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93',
-    before => Yumrepo['postgresql'],
+    before => Yumrepo['postgresql_9_3'],
   }
 
-  yumrepo { 'postgresql':
-    descr       => $postgresql_descr,
-    baseurl     => $postgresql_url,
-    enabled     => $postgresql_enabled,
-    gpgcheck    => $postgresql_gpgcheck,
-    includepkgs => $postgresql_includepkgs,
-    exclude     => $postgresql_exclude,
+  yumrepo { 'postgresql_9_3':
+    descr       => $postgresql_9_3_descr,
+    baseurl     => $postgresql_9_3_url,
+    enabled     => $postgresql_9_3_enabled,
+    gpgcheck    => $postgresql_9_3_gpgcheck,
+    includepkgs => $postgresql_9_3_includepkgs,
+    exclude     => $postgresql_9_3_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93',
     require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93'],
   }
