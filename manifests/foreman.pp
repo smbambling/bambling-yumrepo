@@ -1,4 +1,4 @@
-# Add the Puppet Labs Products and Dependencies Repositories
+# Add The Foreman basic and plugin Repositories
 class yumrepo::foreman (
   $foreman_url                 = $yumrepo::params::foreman_url,
   $foreman_enabled             = $yumrepo::params::foreman_enabled,

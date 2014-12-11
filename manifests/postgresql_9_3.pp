@@ -1,4 +1,4 @@
-# Add the Extra Packages for Enterprise Linux Repository
+# Add the PostgreSQL 9.3 PGDG Repository
 class yumrepo::postgresql_9_3 (
   $postgresql_9_3_url         = $yumrepo::params::postgresql_9_3_url,
   $postgresql_9_3_enabled     = $yumrepo::params::postgresql_9_3_enabled,
