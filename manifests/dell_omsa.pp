@@ -1,4 +1,4 @@
-# Add the Puppet Labs Products and Dependencies Repositories
+# Add the Dell OMSA indep and specific Repositories
 class yumrepo::dell_omsa (
   $dell_omsa_indep_mirrorlist        = $yumrepo::params::dell_omsa_indep_mirrorlist,
   $dell_omsa_indep_enabled           = $yumrepo::params::dell_omsa_indep_enabled,
@@ -42,9 +42,6 @@ class yumrepo::dell_omsa (
     before => Yumrepo['dell_omsa_indep', 'dell_omsa_specific'],
   }
 
-  $gpgkeys = "/etc/pki/rpm-gpg/RPM-GPG-KEY-dell
-  /etc/pki/rpm-gpg/RPM-GPG-KEY-libsmbios"
-
   yumrepo { 'dell_omsa_indep':
     descr       => $dell_omsa_indep_descr,
     mirrorlist  => $dell_omsa_indep_mirrorlist,
@@ -52,7 +49,7 @@ class yumrepo::dell_omsa (
     gpgcheck    => $dell_omsa_indep_gpgcheck,
     includepkgs => $dell_omsa_indep_includepkgs,
     exclude     => $dell_omsa_indep_exclude,
-    gpgkey      => $gpgkeys,
+    gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-dell file:///etc/pki/rpm-gpg/RPM-GPG-KEY-libsmbios',
     require     => [ File['/etc/pki/rpm-gpg/RPM-GPG-KEY-dell'], File['/etc/pki/rpm-gpg/RPM-GPG-KEY-libsmbios'] ],
   }
 
@@ -63,7 +60,7 @@ class yumrepo::dell_omsa (
     gpgcheck    => $dell_omsa_specific_gpgcheck,
     includepkgs => $dell_omsa_specific_includepkgs,
     exclude     => $dell_omsa_specific_exclude,
-    gpgkey      => $gpgkeys,
+    gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-dell file:///etc/pki/rpm-gpg/RPM-GPG-KEY-libsmbios',
     require     => [ File['/etc/pki/rpm-gpg/RPM-GPG-KEY-dell'], File['/etc/pki/rpm-gpg/RPM-GPG-KEY-libsmbios'] ],
   }
 }
