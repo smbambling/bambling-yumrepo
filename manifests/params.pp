@@ -64,11 +64,29 @@ class yumrepo::params {
   $elasticsearch_1_4_descr       = 'Elasticsearch repository for 1.4.x packages'
 
   # Icinga Parameters
-  $icinga_url         = "http://packages.icinga.org/epel/${os_maj_release}/release/" 
+  $icinga_url         = "http://packages.icinga.org/epel/${os_maj_release}/release/"
   $icinga_enabled     = '1'
   $icinga_gpgcheck    = '1'
   $icinga_includepkgs = absent
   $icinga_exclude     = absent
-  $icinga_descr       = 'ICINGA (stable release for epel)'  
+  $icinga_descr       = 'ICINGA (stable release for epel)'
+
+  # Dell OMSA Parameters
+  # Dell OMSA has two repositories, (indep, specific)
+  $dell_omsa_indep_mirrorlist     = 'http://linux.dell.com/repo/hardware/latest/mirrors.cgi?osname=el$releasever&basearch=$basearch&native=1&dellsysidpluginver=$dellsysidpluginver'
+  $dell_omsa_indep_enabled        = '1'
+  $dell_omsa_indep_gpgcheck       = '1'
+  $dell_omsa_indep_includepkgs    = absent
+  $dell_omsa_indep_exclude        = absent
+  $dell_omsa_indep_failovermethod = 'priority'
+  $dell_omsa_indep_descr          = 'Dell OMSA repository - Hardware independent'
+
+  $dell_omsa_specific_mirrorlist     = 'http://linux.dell.com/repo/hardware/latest/mirrors.cgi?osname=el$releasever&basearch=$basearch&native=1&sys_ven_id=$sys_ven_id&sys_dev_id=$sys_dev_id&dellsysidpluginver=$dellsysidpluginver'
+  $dell_omsa_specific_enabled        = '1'
+  $dell_omsa_specific_gpgcheck       = '1'
+  $dell_omsa_specific_includepkgs    = absent
+  $dell_omsa_specific_exclude        = absent
+  $dell_omsa_specific_failovermethod = 'priority'
+  $dell_omsa_specific_descr          = 'Dell OMSA repository - Hardware specific'
 
 }
