@@ -12,16 +12,14 @@ class yumrepo::puppetlabs (
   $puppetlabs_deps_includepkgs     = $yumrepo::params::puppetlabs_deps_includepkgs,
   $puppetlabs_deps_exclude         = $yumrepo::params::puppetlabs_deps_exclude,
   $puppetlabs_deps_descr           = $yumrepo::params::puppetlabs_deps_descr,
-) {
-
-  include yumrepo::params
+) inherits yumrepo::params {
 
   file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs':
     ensure => present,
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => 'puppet:///modules/puppetlabs/RPM-GPG-KEY-puppetlabs',
+    source => 'puppet:///modules/yumrepo/puppetlabs/RPM-GPG-KEY-puppetlabs',
   }
 
   yumrepo::rpm_gpg_key { 'puppetlabs':

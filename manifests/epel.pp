@@ -6,16 +6,14 @@ class yumrepo::epel (
   $epel_includepkgs = $yumrepo::params::epel_includepkgs,
   $epel_exclude     = $yumrepo::params::epel_exclude,
   $epel_descr       = $yumrepo::params::epel_descr,
-) {
+) inherits yumrepo::params {
   
-  include yumrepo::params
-
   file { "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${yumrepo::params::os_maj_release}":
     ensure => present,
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => "puppet:///modules/epel/RPM-GPG-KEY-EPEL-${yumrepo::params::os_maj_release}",
+    source => "puppet:///modules/yumrepo/epel/RPM-GPG-KEY-EPEL-${yumrepo::params::os_maj_release}",
   }
 
   yumrepo::rpm_gpg_key { "EPEL-${yumrepo::params::os_maj_release}":

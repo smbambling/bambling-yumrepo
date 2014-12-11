@@ -12,9 +12,7 @@ class yumrepo::foreman (
   $foreman_plugins_includepkgs = $yumrepo::params::foreman_plugins_includepkgs,
   $foreman_plugins_exclude     = $yumrepo::params::foreman_plugins_exclude,
   $foreman_plugins_descr       = $yumrepo::params::foreman_plugins_descr,
-) {
-
-  include yumrepo::params
+) inherits yumrepo::params {
 
   if $yumrepo::params::os_maj_release == '6' or $yumrepo::params::os_maj_release == '7' {
     file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-foreman':
@@ -22,7 +20,7 @@ class yumrepo::foreman (
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
-      source => 'puppet:///modules/foreman/RPM-GPG-KEY-foreman',
+      source => 'puppet:///modules/yumrepo/foreman/RPM-GPG-KEY-foreman',
     }
 
     yumrepo::rpm_gpg_key { 'foreman':
