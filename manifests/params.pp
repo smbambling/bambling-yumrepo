@@ -89,4 +89,13 @@ class yumrepo::params {
   $dell_omsa_specific_failovermethod = 'priority'
   $dell_omsa_specific_descr          = 'Dell OMSA repository - Hardware specific'
 
+  # Rsyslog Version 8 Parameters
+  $rsyslog_v8_url         = "http://rpms.adiscon.com/v8-stable/epel-${os_maj_release}/${::architecture}"
+  $rsyslog_v8_enabled     = '1'
+  $rsyslog_v8_gpgcheck    = '1'
+  $rsyslog_v8_includepkgs = absent
+  $rsyslog_v8_exclude     = absent
+  $rsyslog_v8_descr       = "Adiscon CentOS-${os_maj_release} - local packages for \$basearch"
+
+
 }
