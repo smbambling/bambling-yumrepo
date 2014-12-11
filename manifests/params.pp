@@ -56,7 +56,7 @@ class yumrepo::params {
   $postgresql_9_3_descr       = 'PostgreSQL 9.3 $releasever - $basearch $basearch'
 
   # Elasticsearch 1.4.x Parameters
-  $elasticsearch_1_4_url         = 'http://packages.elasticsearch_1_4.org/elasticsearch_1_4/1.4/centos'
+  $elasticsearch_1_4_url         = 'http://packages.elasticsearch_1_4.org/elasticsearch/1.4/centos'
   $elasticsearch_1_4_enabled     = '1'
   $elasticsearch_1_4_gpgcheck    = '1'
   $elasticsearch_1_4_includepkgs = absent
