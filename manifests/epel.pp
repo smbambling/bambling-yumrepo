@@ -18,7 +18,7 @@ class yumrepo::epel (
     source => "puppet:///modules/epel/RPM-GPG-KEY-EPEL-${yumrepo::params::os_maj_release}",
   }
 
-  yumrepo::rpm_gpg_key{ "EPEL-${yumrepo::params::os_maj_release}":
+  yumrepo::rpm_gpg_key { "EPEL-${yumrepo::params::os_maj_release}":
     path   => "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${yumrepo::params::os_maj_release}",
     before => Yumrepo['epel'],
   }
