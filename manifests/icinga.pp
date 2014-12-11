@@ -8,16 +8,17 @@ class yumrepo::icinga (
   $icinga_descr       = $yumrepo::params::icinga_descr,
 ) inherits yumrepo::params {
   
-  file { "/etc/pki/rpm-gpg/icinga.key":
+  if $yumrepo::params::os_maj_release == '5' or $yumrepo::params::os_maj_release == '6' or $yumrepo::params::os_maj_release == '7' {
+  file { '/etc/pki/rpm-gpg/icinga.key':
     ensure => present,
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => "puppet:///modules/yumrepo/icinga/icinga.key",
+    source => 'puppet:///modules/yumrepo/icinga/icinga.key',
   }
 
-  yumrepo::rpm_gpg_key { "icinga.key":
-    path   => "/etc/pki/rpm-gpg/icinga.key",
+  yumrepo::rpm_gpg_key { 'icinga.key':
+    path   => '/etc/pki/rpm-gpg/icinga.key',
     before => Yumrepo['icinga'],
   }
 
@@ -28,7 +29,10 @@ class yumrepo::icinga (
     gpgcheck    => $icinga_gpgcheck,
     includepkgs => $icinga_includepkgs,
     exclude     => $icinga_exclude,
-    gpgkey      => "file:///etc/pki/rpm-gpg/icinga.key",
-    require     => File["/etc/pki/rpm-gpg/icinga.key"],
+    gpgkey      => 'file:///etc/pki/rpm-gpg/icinga.key',
+    require     => File['/etc/pki/rpm-gpg/icinga.key'],
+  }
+  } else {
+    notice ('Your system will not have the Icinga repository applied, requires Operating System Major release of 5, 6 or 7')
   }
 }
