@@ -63,4 +63,12 @@ class yumrepo::params {
   $elasticsearch_1_4_exclude     = absent
   $elasticsearch_1_4_descr       = 'Elasticsearch repository for 1.4.x packages'
 
+  # Icinga Parameters
+  $icinga_url         = "http://packages.icinga.org/epel/${os_maj_release}/release/" 
+  $icinga_enabled     = '1'
+  $icinga_gpgcheck    = '1'
+  $icinga_includepkgs = absent
+  $icinga_exclude     = absent
+  $icinga_descr       = 'ICINGA (stable release for epel)'  
+
 }
