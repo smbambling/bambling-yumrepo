@@ -8,6 +8,8 @@ class yumrepo::epel (
   $epel_descr       = $yumrepo::params::epel_descr,
 ) inherits yumrepo::params {
   
+  include yumrepo::cleanall
+  
   file { "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${yumrepo::params::os_maj_release}":
     ensure => present,
     owner  => 'root',
@@ -30,5 +32,6 @@ class yumrepo::epel (
     exclude     => $epel_exclude,
     gpgkey      => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${yumrepo::params::os_maj_release}",
     require     => File["/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${yumrepo::params::os_maj_release}"],
+    notify      => [ Exec['cleanall'], Exec['makecache'] ],
   }
 }
