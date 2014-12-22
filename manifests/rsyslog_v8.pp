@@ -7,6 +7,8 @@ class yumrepo::rsyslog_v8 (
   $rsyslog_v8_exclude     = $yumrepo::params::rsyslog_v8_exclude,
   $rsyslog_v8_descr       = $yumrepo::params::rsyslog_v8_descr,
 ) inherits yumrepo::params {
+
+  include yumrepo::cleanall
   
   file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-Adiscon':
     ensure => present,
@@ -30,5 +32,6 @@ class yumrepo::rsyslog_v8 (
     exclude     => $rsyslog_v8_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Adiscon',
     require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-Adiscon'],
+    notify      => [ Exec['cleanall'], Exec['makecache'] ],
   }
 }

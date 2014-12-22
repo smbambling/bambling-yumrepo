@@ -14,6 +14,8 @@ class yumrepo::puppetlabs (
   $puppetlabs_deps_descr           = $yumrepo::params::puppetlabs_deps_descr,
 ) inherits yumrepo::params {
 
+  include yumrepo::cleanall
+
   file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs':
     ensure => present,
     owner  => 'root',
@@ -36,6 +38,7 @@ class yumrepo::puppetlabs (
     exclude     => $puppetlabs_products_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs',
     require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs'],
+    notify      => [ Exec['cleanall'], Exec['makecache'] ],
   }
 
   yumrepo { 'puppetlabs_deps':
@@ -47,5 +50,6 @@ class yumrepo::puppetlabs (
     exclude     => $puppetlabs_deps_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs',
     require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs'],
+    notify      => [ Exec['cleanall'], Exec['makecache'] ],
   }
 }

@@ -7,6 +7,8 @@ class yumrepo::elasticsearch_1_4 (
   $elasticsearch_1_4_exclude     = $yumrepo::params::elasticsearch_1_4_exclude,
   $elasticsearch_1_4_descr       = $yumrepo::params::elasticsearch_1_4_descr,
 ) inherits yumrepo::params {
+
+  include yumrepo::cleanall
   
   file { '/etc/pki/rpm-gpg/GPG-KEY-elasticsearch':
     ensure => present,
@@ -30,5 +32,6 @@ class yumrepo::elasticsearch_1_4 (
     exclude     => $elasticsearch_1_4_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/GPG-KEY-elasticsearch',
     require     => File['/etc/pki/rpm-gpg/GPG-KEY-elasticsearch'],
+    notify      => [ Exec['cleanall'], Exec['makecache'] ],
   }
 }

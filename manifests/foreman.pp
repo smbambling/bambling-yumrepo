@@ -13,6 +13,8 @@ class yumrepo::foreman (
   $foreman_plugins_exclude     = $yumrepo::params::foreman_plugins_exclude,
   $foreman_plugins_descr       = $yumrepo::params::foreman_plugins_descr,
 ) inherits yumrepo::params {
+  
+  include yumrepo::cleanall
 
   if $yumrepo::params::os_maj_release == '6' or $yumrepo::params::os_maj_release == '7' {
     file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-foreman':
@@ -37,6 +39,7 @@ class yumrepo::foreman (
       exclude     => $foreman_exclude,
       gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman',
       require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-foreman'],
+      notify      => [ Exec['cleanall'], Exec['makecache'] ],
     }
 
     yumrepo { 'foreman_plugins':
@@ -48,6 +51,7 @@ class yumrepo::foreman (
       exclude     => $foreman_plugins_exclude,
       gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman',
       require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-foreman'],
+      notify      => [ Exec['cleanall'], Exec['makecache'] ],
     }
 
   } else {

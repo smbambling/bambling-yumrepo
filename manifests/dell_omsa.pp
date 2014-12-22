@@ -16,6 +16,8 @@ class yumrepo::dell_omsa (
   $dell_omsa_specific_failovermethod = $yumrepo::params::dell_omsa_specific_failovermethod,
 ) inherits yumrepo::params {
 
+  include yumrepo::cleanall
+
   file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-dell':
     ensure => present,
     owner  => 'root',
@@ -51,6 +53,7 @@ class yumrepo::dell_omsa (
     exclude     => $dell_omsa_indep_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-dell file:///etc/pki/rpm-gpg/RPM-GPG-KEY-libsmbios',
     require     => [ File['/etc/pki/rpm-gpg/RPM-GPG-KEY-dell'], File['/etc/pki/rpm-gpg/RPM-GPG-KEY-libsmbios'] ],
+    notify      => [ Exec['cleanall'], Exec['makecache'] ],
   }
 
   yumrepo { 'dell_omsa_specific':
@@ -62,5 +65,6 @@ class yumrepo::dell_omsa (
     exclude     => $dell_omsa_specific_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-dell file:///etc/pki/rpm-gpg/RPM-GPG-KEY-libsmbios',
     require     => [ File['/etc/pki/rpm-gpg/RPM-GPG-KEY-dell'], File['/etc/pki/rpm-gpg/RPM-GPG-KEY-libsmbios'] ],
+    notify      => [ Exec['cleanall'], Exec['makecache'] ],
   }
 }

@@ -7,6 +7,8 @@ class yumrepo::postgresql_9_3 (
   $postgresql_9_3_exclude     = $yumrepo::params::postgresql_9_3_exclude,
   $postgresql_9_3_descr       = $yumrepo::params::postgresql_9_3_descr,
 ) inherits yumrepo::params {
+
+  include yumrepo::cleanall
   
   file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93':
     ensure => present,
@@ -30,5 +32,6 @@ class yumrepo::postgresql_9_3 (
     exclude     => $postgresql_9_3_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93',
     require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93'],
+    notify      => [ Exec['cleanall'], Exec['makecache'] ],
   }
 }
