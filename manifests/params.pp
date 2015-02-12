@@ -56,7 +56,7 @@ class yumrepo::params {
   $foreman_plugins_descr       = "The Foreman Plugings Latest El ${os_maj_release} - \$basearch"
 
   # PostgreSQL PGDG 9.3 Parameters
-  $postgresql_9_3_name        = 'pgdb-93'
+  $postgresql_9_3_name        = 'pgdg-93'
   $postgresql_9_3_url         = "http://yum.postgresql.org/9.3/redhat/rhel-${os_maj_release}-${::architecture}"
   $postgresql_9_3_enabled     = '1'
   $postgresql_9_3_gpgcheck    = '1'
@@ -65,7 +65,7 @@ class yumrepo::params {
   $postgresql_9_3_descr       = 'PostgreSQL 9.3 $releasever - $basearch'
 
   # PostgreSQL PGDG 9.4 Parameters
-  $postgresql_9_4_name        = 'pgdb-94'
+  $postgresql_9_4_name        = 'pgdg-94'
   $postgresql_9_4_url         = "http://yum.postgresql.org/9.4/redhat/rhel-${os_maj_release}-${::architecture}"
   $postgresql_9_4_enabled     = '1'
   $postgresql_9_4_gpgcheck    = '1'
