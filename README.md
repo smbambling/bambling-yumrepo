@@ -16,6 +16,7 @@ Installs and Enables YUM repositories
  - The Foreman
  - Icinga
  - Postgresql 9.3
+ - Postgresql 9.4
  - PuppetLabs
  - Rsyslog V8
  - CentOS SCL
