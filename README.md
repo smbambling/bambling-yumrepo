@@ -4,7 +4,8 @@
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Usage - Configuration options and additional functionality](#usage)
+3. [Helpful Hint - Yumrepo, Package order of operations](#helpful-hint)
+4. [Usage - Configuration options and additional functionality](#usage)
 
 ## Overview
 
