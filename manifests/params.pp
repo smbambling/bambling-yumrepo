@@ -9,6 +9,7 @@ class yumrepo::params {
   }
 
   # SCL Parameters
+  $scl_name        = 'scl'
   $scl_url         = 'http://mirror.centos.org/centos/$releasever/SCL/$basearch/'
   $scl_enabled     = '1'
   $scl_gpgcheck    = '1'

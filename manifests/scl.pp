@@ -1,5 +1,6 @@
 # Add the The Software Collections ( SCL ) repository
 class yumrepo::scl (
+  $scl_name        = $yumrepo::params::scl_name,
   $scl_url         = $yumrepo::params::scl_url,
   $scl_enabled     = $yumrepo::params::scl_enabled,
   $scl_gpgcheck    = $yumrepo::params::scl_gpgcheck,
@@ -11,6 +12,7 @@ class yumrepo::scl (
   include yumrepo::cleanall
 
   yumrepo { 'scl':
+    name        => $scl_name,
     descr       => $scl_descr,
     baseurl     => $scl_url,
     enabled     => $scl_enabled,

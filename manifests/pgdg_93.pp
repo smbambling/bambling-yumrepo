@@ -1,5 +1,6 @@
 # Add the PostgreSQL 9.3 PGDG Repository
 class yumrepo::pgdg_93 (
+  $pgdg_93_name        = $yumrepo::params::pgdg_93_name,
   $pgdg_93_url         = $yumrepo::params::pgdg_93_url,
   $pgdg_93_enabled     = $yumrepo::params::pgdg_93_enabled,
   $pgdg_93_gpgcheck    = $yumrepo::params::pgdg_93_gpgcheck,
