@@ -18,6 +18,7 @@ Installs and Enables YUM repositories
  - Postgresql 9.3
  - PuppetLabs
  - Rsyslog V8
+ - CentOS SCL
 
 ## Module Description
 
@@ -27,31 +28,21 @@ Additionally runs the following commands to make the repositories usable "quicke
  - yum clean all
  - yum makecache
 
+## Helpful Hint
+
+To avoid order of operations issues where the required repository is not installed before
+the needed package I recommend adding the following to your manifest.  This will set the correct
+order of operations between Yumrepo resources and Package resources
+
+````
+Yumrepo <| |> -> Package <| |>
+````
+
 ## Usage
 
-It's recommended to use run stage with repositories so they are applied
-in a pre stage for classes that require a package that resides within them
+````
+include yumrepo::epel
+include yumrepo::puppetlabs
+````
 
-*Using Stages*
 
-```puppet
-# Include stdlib for additional functions and stages
-include stdlib
-
-# Classes that run BEFORE the *main* stage
-class setup {
-  include yumrepo::epel
-  include yumrepo::puppetlabs
-}
-
-# Roll-up class used for setting stage parameter, anything class declared
-# here will be in the *main* stage by default
-class base {
-  class { setup:
-    stage => setup,
-  }
-}
-
-# Run the roll-up base class
-class { 'base': }
-```
