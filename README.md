@@ -42,8 +42,16 @@ Yumrepo <| |> -> Package <| |>
 ## Usage
 
 ````
+include yumrepo::dell_omsa
+include yumrepo::elasticsearch_1_4
 include yumrepo::epel
+include yumrepo::foreman
+include yumrepo::icinga
+include yumrepo::pgdg_93
+include yumrepo::pgdg_94
 include yumrepo::puppetlabs
+include yumrepo::rsyslog_v8
+include yumrepo::scl
 ````
 
 
