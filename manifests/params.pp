@@ -56,22 +56,22 @@ class yumrepo::params {
   $foreman_plugins_descr       = "The Foreman Plugings Latest El ${os_maj_release} - \$basearch"
 
   # PostgreSQL PGDG 9.3 Parameters
-  $postgresql_9_3_name        = 'pgdg-93'
-  $postgresql_9_3_url         = "http://yum.postgresql.org/9.3/redhat/rhel-${os_maj_release}-${::architecture}"
-  $postgresql_9_3_enabled     = '1'
-  $postgresql_9_3_gpgcheck    = '1'
-  $postgresql_9_3_includepkgs = absent
-  $postgresql_9_3_exclude     = absent
-  $postgresql_9_3_descr       = 'PostgreSQL 9.3 $releasever - $basearch'
+  $pgdg_93_name        = 'pgdg-93'
+  $pgdg_93_url         = "http://yum.postgresql.org/9.3/redhat/rhel-${os_maj_release}-${::architecture}"
+  $pgdg_93_enabled     = '1'
+  $pgdg_93_gpgcheck    = '1'
+  $pgdg_93_includepkgs = absent
+  $pgdg_93_exclude     = absent
+  $pgdg_93_descr       = 'PostgreSQL 9.3 $releasever - $basearch'
 
   # PostgreSQL PGDG 9.4 Parameters
-  $postgresql_9_4_name        = 'pgdg-94'
-  $postgresql_9_4_url         = "http://yum.postgresql.org/9.4/redhat/rhel-${os_maj_release}-${::architecture}"
-  $postgresql_9_4_enabled     = '1'
-  $postgresql_9_4_gpgcheck    = '1'
-  $postgresql_9_4_includepkgs = absent
-  $postgresql_9_4_exclude     = absent
-  $postgresql_9_4_descr       = 'PostgreSQL 9.4 $releasever - $basearch'
+  $pgdg_94_name        = 'pgdg-94'
+  $pgdg_94_url         = "http://yum.postgresql.org/9.4/redhat/rhel-${os_maj_release}-${::architecture}"
+  $pgdg_94_enabled     = '1'
+  $pgdg_94_gpgcheck    = '1'
+  $pgdg_94_includepkgs = absent
+  $pgdg_94_exclude     = absent
+  $pgdg_94_descr       = 'PostgreSQL 9.4 $releasever - $basearch'
 
   # Elasticsearch 1.4.x Parameters
   $elasticsearch_1_4_url         = 'http://packages.elasticsearch.org/elasticsearch/1.4/centos'

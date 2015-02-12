@@ -1,11 +1,11 @@
 # Add the PostgreSQL 9.3 PGDG Repository
-class yumrepo::postgresql_9_3 (
-  $postgresql_9_3_url         = $yumrepo::params::postgresql_9_3_url,
-  $postgresql_9_3_enabled     = $yumrepo::params::postgresql_9_3_enabled,
-  $postgresql_9_3_gpgcheck    = $yumrepo::params::postgresql_9_3_gpgcheck,
-  $postgresql_9_3_includepkgs = $yumrepo::params::postgresql_9_3_includepkgs,
-  $postgresql_9_3_exclude     = $yumrepo::params::postgresql_9_3_exclude,
-  $postgresql_9_3_descr       = $yumrepo::params::postgresql_9_3_descr,
+class yumrepo::pgdg_93 (
+  $pgdg_93_url         = $yumrepo::params::pgdg_93_url,
+  $pgdg_93_enabled     = $yumrepo::params::pgdg_93_enabled,
+  $pgdg_93_gpgcheck    = $yumrepo::params::pgdg_93_gpgcheck,
+  $pgdg_93_includepkgs = $yumrepo::params::pgdg_93_includepkgs,
+  $pgdg_93_exclude     = $yumrepo::params::pgdg_93_exclude,
+  $pgdg_93_descr       = $yumrepo::params::pgdg_93_descr,
 ) inherits yumrepo::params {
 
   include yumrepo::cleanall
@@ -15,22 +15,22 @@ class yumrepo::postgresql_9_3 (
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => 'puppet:///modules/yumrepo/postgresql_9_3/RPM-GPG-KEY-PGDG-93',
+    source => 'puppet:///modules/yumrepo/pgdg_93/RPM-GPG-KEY-PGDG-93',
   }
 
   yumrepo::rpm_gpg_key { 'PGDG-93':
     path   => '/etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93',
-    before => Yumrepo['postgresql_9_3'],
+    before => Yumrepo['pgdg_93'],
   }
 
-  yumrepo { 'postgresql_9_3':
-    name        => $postgresql_9_3_name,
-    descr       => $postgresql_9_3_descr,
-    baseurl     => $postgresql_9_3_url,
-    enabled     => $postgresql_9_3_enabled,
-    gpgcheck    => $postgresql_9_3_gpgcheck,
-    includepkgs => $postgresql_9_3_includepkgs,
-    exclude     => $postgresql_9_3_exclude,
+  yumrepo { 'pgdg_93':
+    name        => $pgdg_93_name,
+    descr       => $pgdg_93_descr,
+    baseurl     => $pgdg_93_url,
+    enabled     => $pgdg_93_enabled,
+    gpgcheck    => $pgdg_93_gpgcheck,
+    includepkgs => $pgdg_93_includepkgs,
+    exclude     => $pgdg_93_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93',
     require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93'],
     notify      => [ Exec['cleanall'], Exec['makecache'] ],
