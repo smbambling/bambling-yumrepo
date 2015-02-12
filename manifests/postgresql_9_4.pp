@@ -1,4 +1,4 @@
-# Add the PostgreSQL 9.3 PGDG Repository
+# Add the PostgreSQL 9.4 PGDG Repository
 class yumrepo::postgresql_9_4 (
   $postgresql_9_4_url         = $yumrepo::params::postgresql_9_4_url,
   $postgresql_9_4_enabled     = $yumrepo::params::postgresql_9_4_enabled,
