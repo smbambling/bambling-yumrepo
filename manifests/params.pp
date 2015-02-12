@@ -8,13 +8,13 @@ class yumrepo::params {
     $os_maj_release = $os_versions[0]
   }
 
-  # EPEL Parameters
-  $scl_url          = 'http://mirror.centos.org/centos/$releasever/SCL/$basearch/'
-  $epel_enabled     = '1'
-  $epel_gpgcheck    = '1'
-  $epel_includepkgs = absent
-  $epel_exclude     = absent
-  $scl_descr        = 'CentOS-$releasever - SCL'
+  # SCL Parameters
+  $scl_url         = 'http://mirror.centos.org/centos/$releasever/SCL/$basearch/'
+  $scl_enabled     = '1'
+  $scl_gpgcheck    = '1'
+  $scl_includepkgs = absent
+  $scl_exclude     = absent
+  $scl_descr       = 'CentOS-$releasever - SCL'
 
   # EPEL Parameters
   $epel_url         = "http://download.fedoraproject.org/pub/epel/${os_maj_release}/${::architecture}"
