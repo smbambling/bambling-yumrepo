@@ -56,12 +56,22 @@ class yumrepo::params {
   $foreman_plugins_descr       = "The Foreman Plugings Latest El ${os_maj_release} - \$basearch"
 
   # PostgreSQL PGDG 9.3 Parameters
+  $postgresql_9_3_name        = 'pgdb-93'
   $postgresql_9_3_url         = "http://yum.postgresql.org/9.3/redhat/rhel-${os_maj_release}-${::architecture}"
   $postgresql_9_3_enabled     = '1'
   $postgresql_9_3_gpgcheck    = '1'
   $postgresql_9_3_includepkgs = absent
   $postgresql_9_3_exclude     = absent
-  $postgresql_9_3_descr       = 'PostgreSQL 9.3 $releasever - $basearch $basearch'
+  $postgresql_9_3_descr       = 'PostgreSQL 9.3 $releasever - $basearch'
+
+  # PostgreSQL PGDG 9.4 Parameters
+  $postgresql_9_4_name        = 'pgdb-94'
+  $postgresql_9_4_url         = "http://yum.postgresql.org/9.4/redhat/rhel-${os_maj_release}-${::architecture}"
+  $postgresql_9_4_enabled     = '1'
+  $postgresql_9_4_gpgcheck    = '1'
+  $postgresql_9_4_includepkgs = absent
+  $postgresql_9_4_exclude     = absent
+  $postgresql_9_4_descr       = 'PostgreSQL 9.4 $releasever - $basearch'
 
   # Elasticsearch 1.4.x Parameters
   $elasticsearch_1_4_url         = 'http://packages.elasticsearch.org/elasticsearch/1.4/centos'

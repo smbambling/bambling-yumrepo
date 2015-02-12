@@ -24,6 +24,7 @@ class yumrepo::postgresql_9_3 (
   }
 
   yumrepo { 'postgresql_9_3':
+    name        => $postgresql_9_3_name,
     descr       => $postgresql_9_3_descr,
     baseurl     => $postgresql_9_3_url,
     enabled     => $postgresql_9_3_enabled,
