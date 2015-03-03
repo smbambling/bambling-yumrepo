@@ -34,6 +34,6 @@ class yumrepo::pgdg_93 (
     exclude     => $pgdg_93_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93',
     require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-PGDG-93'],
-    notify      => [ Exec['cleanall'], Exec['makecache'] ],
+    notify      => [ Exec['cleanall'], ],
   }
 }

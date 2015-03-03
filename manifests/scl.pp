@@ -20,7 +20,7 @@ class yumrepo::scl (
     includepkgs => $scl_includepkgs,
     exclude     => $scl_exclude,
     gpgkey      => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-${yumrepo::params::os_maj_release}",
-    notify      => [ Exec['cleanall'], Exec['makecache'] ],
+    notify      => [ Exec['cleanall'], ],
     target      => 'CentOS-SCL',
   }
 }

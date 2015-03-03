@@ -32,6 +32,6 @@ class yumrepo::elasticsearch_1_4 (
     exclude     => $elasticsearch_1_4_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/GPG-KEY-elasticsearch',
     require     => File['/etc/pki/rpm-gpg/GPG-KEY-elasticsearch'],
-    notify      => [ Exec['cleanall'], Exec['makecache'] ],
+    notify      => [ Exec['cleanall'], ],
   }
 }

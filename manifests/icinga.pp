@@ -33,7 +33,7 @@ class yumrepo::icinga (
     exclude     => $icinga_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/icinga.key',
     require     => File['/etc/pki/rpm-gpg/icinga.key'],
-    notify      => [ Exec['cleanall'], Exec['makecache'] ],
+    notify      => [ Exec['cleanall'], ],
   }
   } else {
     notice ('Your system will not have the Icinga repository applied, requires Operating System Major release of 5, 6 or 7')

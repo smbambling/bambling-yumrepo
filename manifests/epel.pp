@@ -32,6 +32,6 @@ class yumrepo::epel (
     exclude     => $epel_exclude,
     gpgkey      => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${yumrepo::params::os_maj_release}",
     require     => File["/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${yumrepo::params::os_maj_release}"],
-    notify      => [ Exec['cleanall'], Exec['makecache'] ],
+    notify      => [ Exec['cleanall'], ],
   }
 }

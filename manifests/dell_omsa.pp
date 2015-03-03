@@ -53,7 +53,7 @@ class yumrepo::dell_omsa (
     exclude     => $dell_omsa_indep_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-dell file:///etc/pki/rpm-gpg/RPM-GPG-KEY-libsmbios',
     require     => [ File['/etc/pki/rpm-gpg/RPM-GPG-KEY-dell'], File['/etc/pki/rpm-gpg/RPM-GPG-KEY-libsmbios'] ],
-    notify      => [ Exec['cleanall'], Exec['makecache'] ],
+    notify      => [ Exec['cleanall'], ],
   }
 
   yumrepo { 'dell_omsa_specific':
@@ -65,6 +65,6 @@ class yumrepo::dell_omsa (
     exclude     => $dell_omsa_specific_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-dell file:///etc/pki/rpm-gpg/RPM-GPG-KEY-libsmbios',
     require     => [ File['/etc/pki/rpm-gpg/RPM-GPG-KEY-dell'], File['/etc/pki/rpm-gpg/RPM-GPG-KEY-libsmbios'] ],
-    notify      => [ Exec['cleanall'], Exec['makecache'] ],
+    notify      => [ Exec['cleanall'], ],
   }
 }

@@ -39,7 +39,7 @@ class yumrepo::foreman (
       exclude     => $foreman_exclude,
       gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman',
       require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-foreman'],
-      notify      => [ Exec['cleanall'], Exec['makecache'] ],
+      notify      => [ Exec['cleanall'], ],
     }
 
     yumrepo { 'foreman_plugins':
@@ -51,7 +51,7 @@ class yumrepo::foreman (
       exclude     => $foreman_plugins_exclude,
       gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-foreman',
       require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-foreman'],
-      notify      => [ Exec['cleanall'], Exec['makecache'] ],
+      notify      => [ Exec['cleanall'], ],
     }
 
   } else {

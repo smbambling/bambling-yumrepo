@@ -32,6 +32,6 @@ class yumrepo::rsyslog_v8 (
     exclude     => $rsyslog_v8_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Adiscon',
     require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-Adiscon'],
-    notify      => [ Exec['cleanall'], Exec['makecache'] ],
+    notify      => [ Exec['cleanall'], ],
   }
 }

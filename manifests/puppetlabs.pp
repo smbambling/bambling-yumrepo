@@ -38,7 +38,7 @@ class yumrepo::puppetlabs (
     exclude     => $puppetlabs_products_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs',
     require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs'],
-    notify      => [ Exec['cleanall'], Exec['makecache'] ],
+    notify      => [ Exec['cleanall'], ],
   }
 
   yumrepo { 'puppetlabs_deps':
@@ -50,6 +50,6 @@ class yumrepo::puppetlabs (
     exclude     => $puppetlabs_deps_exclude,
     gpgkey      => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs',
     require     => File['/etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs'],
-    notify      => [ Exec['cleanall'], Exec['makecache'] ],
+    notify      => [ Exec['cleanall'], ],
   }
 }
