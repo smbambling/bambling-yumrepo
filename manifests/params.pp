@@ -51,7 +51,7 @@ class yumrepo::params {
 
   $foreman_plugins_url         = "http://yum.theforeman.org/plugins/latest/el${os_maj_release}/${::architecture}"
   $foreman_plugins_enabled     = '1'
-  $foreman_plugins_gpgcheck    = '1'
+  $foreman_plugins_gpgcheck    = '0'
   $foreman_plugins_includepkgs = absent
   $foreman_plugins_exclude     = absent
   $foreman_plugins_descr       = "The Foreman Plugings Latest El ${os_maj_release} - \$basearch"
