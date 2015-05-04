@@ -20,7 +20,7 @@ class yumrepo::puppetlabs_pc1 (
 
   yumrepo::rpm_gpg_key { 'puppetlabs_pc1':
     path   => '/etc/pki/rpm-gpg/RPM-GPG-KEY-puppetlabs',
-    before => Yumrepo[ 'puppetlabs_pc1' ],
+    before => Yumrepo[ 'puppetlabs-pc1' ],
   }
 
   yumrepo { 'puppetlabs-pc1':
