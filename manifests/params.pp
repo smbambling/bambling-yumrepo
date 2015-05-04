@@ -41,6 +41,13 @@ class yumrepo::params {
   $puppetlabs_deps_exclude     = absent
   $puppetlabs_deps_descr       = "Puppet Labs Dependencies El ${os_maj_release} - \$basearch"
 
+  $puppetlabs_pc1_url         = "http://yum.puppetlabs.com/el/${os_maj_release}/PC1/${::architecture}"
+  $puppetlabs_pc1_enabled     = '1'
+  $puppetlabs_pc1_gpgcheck    = '1'
+  $puppetlabs_pc1_includepkgs = absent
+  $puppetlabs_pc1_exclude     = absent
+  $puppetlabs_pc1_descr       = "Puppet Labs PC1 Repository el ${os_maj_release} - \$basearch"
+
   # The Foreman Parameters
   $foreman_url         = "http://yum.theforeman.org/releases/latest/el${os_maj_release}/${::architecture}"
   $foreman_enabled     = '1'
