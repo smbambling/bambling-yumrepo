@@ -19,6 +19,8 @@ Installs and Enables YUM repositories
  - Postgresql 9.3
  - Postgresql 9.4
  - PuppetLabs
+   - Release X
+   - Puppet Collecdtion 1
  - Rsyslog V8
  - CentOS SCL
 
@@ -51,6 +53,7 @@ include yumrepo::icinga
 include yumrepo::pgdg_93
 include yumrepo::pgdg_94
 include yumrepo::puppetlabs
+include yumrepo::puppetlabs_pc1
 include yumrepo::rsyslog_v8
 include yumrepo::scl
 ````
