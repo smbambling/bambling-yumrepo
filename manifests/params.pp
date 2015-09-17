@@ -123,5 +123,13 @@ class yumrepo::params {
   $rsyslog_v8_exclude     = absent
   $rsyslog_v8_descr       = "Adiscon CentOS-${os_maj_release} - local packages for \$basearch"
 
+  # MariaDB 10 Parameters
+  $mariadb_10_name        = 'mariadb_10'
+  $mariadb_10_url         = "http://yum.mariadb.org/10.0/centos/${os_maj_release}/${::architecture}"
+  $mariadb_10_enabled     = '1'
+  $mariadb_10_gpgcheck    = '1'
+  $mariadb_10_includepkgs = absent
+  $mariadb_10_exclude     = absent
+  $mariadb_10_descr       = 'MariaDB $releasever - $basearch'
 
 }
