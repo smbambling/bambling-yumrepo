@@ -6,6 +6,7 @@ class yumrepo::rpmforge (
   $rpmforge_includepkgs = $yumrepo::params::rpmforge_includepkgs,
   $rpmforge_exclude     = $yumrepo::params::rpmforge_exclude,
   $rpmforge_descr       = $yumrepo::params::rpmforge_descr,
+  $rpmforge_mirrolist   = $yumrepo::params::rpmforge_mirrorlist,
 ) inherits yumrepo::params {
   
   include yumrepo::cleanall
@@ -30,6 +31,7 @@ class yumrepo::rpmforge (
     gpgcheck    => $rpmforge_gpgcheck,
     includepkgs => $rpmforge_includepkgs,
     exclude     => $rpmforge_exclude,
+    mirrorlist  => $rpmforge_mirrorlist,
     gpgkey      => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-RPMFORGE-${yumrepo::params::os_maj_release}",
     require     => File["/etc/pki/rpm-gpg/RPM-GPG-KEY-RPMFORGE-${yumrepo::params::os_maj_release}"],
     notify      => [ Exec['cleanall'], ],
