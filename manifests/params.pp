@@ -24,6 +24,7 @@ class yumrepo::params {
   $rpmforge_includepkgs = absent
   $rpmforge_exclude     = absent
   $rpmforge_descr       = "Extra Packages for Enterprise Linux ${os_maj_release} - \$basearch"
+  $rpmforge_mirrorlist  = "http://mirrorlist.repoforge.org/el${os_maj_release}/mirrors-rpmforge"
   
   # EPEL Parameters
   $epel_url         = "http://download.fedoraproject.org/pub/epel/${os_maj_release}/${::architecture}"
