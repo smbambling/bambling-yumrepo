@@ -23,6 +23,7 @@ Installs and Enables YUM repositories
    - Puppet Collecdtion 1
  - Rsyslog V8
  - CentOS SCL
+ - [Sensu](https://sensuapp.org)
 
 ## Module Description
 

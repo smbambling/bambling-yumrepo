@@ -141,4 +141,10 @@ class yumrepo::params {
   $mariadb_10_exclude     = absent
   $mariadb_10_descr       = 'MariaDB $releasever - $basearch'
 
+  # Sensu Repo Parameters
+  $sensu_url = "http://repositories.sensuapp.org/yum/${os_maj_release}/${::architecture}"
+  $sensu_enabled = '1'
+  $sensu_includepkgs = absent
+  $sensu_exclude = absent
+  $sensu_descr = 'Sensu $releasever - $basearch'
 }
