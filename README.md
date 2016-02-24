@@ -57,6 +57,7 @@ include yumrepo::puppetlabs
 include yumrepo::puppetlabs_pc1
 include yumrepo::rsyslog_v8
 include yumrepo::scl
+include yumrepo::sensu
 ````
 
 
