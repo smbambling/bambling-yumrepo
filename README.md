@@ -20,10 +20,11 @@ Installs and Enables YUM repositories
  - Postgresql 9.4
  - PuppetLabs
    - Release X
-   - Puppet Collecdtion 1
+   - Puppet Collection 1
  - Rsyslog V8
  - CentOS SCL
  - [Sensu](https://sensuapp.org)
+ - [Erlang Solutions](https://www.erlang-solutions.com/)
 
 ## Module Description
 
@@ -58,6 +59,7 @@ include yumrepo::puppetlabs_pc1
 include yumrepo::rsyslog_v8
 include yumrepo::scl
 include yumrepo::sensu
+include yumrepo::erlang_solutions
 ````
 
 
