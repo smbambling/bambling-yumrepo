@@ -2,6 +2,7 @@
 class yumrepo::sensu (
   $sensu_url              = $yumrepo::params::sensu_url,
   $sensu_enabled          = $yumrepo::params::sensu_enabled,
+  $sensu_gpgcheck         = $yumrepo::params::sensu_gpgcheck,
   $sensu_includepkgs      = $yumrepo::params::sensu_includepkgs,
   $sensu_exclude          = $yumrepo::params::sensu_exclude,
   $sensu_descr            = $yumrepo::params::sensu_descr,
