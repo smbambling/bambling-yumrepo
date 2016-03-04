@@ -156,4 +156,11 @@ class yumrepo::params {
   $erlang_solutions_exclude     = absent
   $erlang_solutions_descr       = 'Erlang-Solutions $releasever - $basearch'
 
+  # Sensu Repo Parameters
+  $powerstack_url         = "http://download.powerstack.org/${os_maj_release}/${::architecture}"
+  $powerstack_enabled     = '1'
+  $powerstack_gpgcheck    = '0'
+  $powerstack_includepkgs = absent
+  $powerstack_exclude     = absent
+  $powerstack_descr       = 'Powerstack $releasever - $basearch'
 }

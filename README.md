@@ -25,6 +25,7 @@ Installs and Enables YUM repositories
  - CentOS SCL
  - [Sensu](https://sensuapp.org)
  - [Erlang Solutions](https://www.erlang-solutions.com/)
+ - [Powerstack](http://powerstack.org)
 
 ## Module Description
 
@@ -60,6 +61,5 @@ include yumrepo::rsyslog_v8
 include yumrepo::scl
 include yumrepo::sensu
 include yumrepo::erlang_solutions
+include yumrepo::powerstack
 ````
-
-
