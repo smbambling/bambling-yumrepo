@@ -11,6 +11,19 @@ class yumrepo::scl (
 
   include yumrepo::cleanall
 
+  file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-SCLo':
+    ensure => present,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/yumrepo/scl/RPM-GPG-KEY-CentOS-SIG-SCLo',
+  }
+
+  yumrepo::rpm_gpg_key { 'CentOS-SIG-SCLo':
+    path   => '/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-SCLo',
+    before => Yumrepo['scl'],
+  }
+
   yumrepo { 'scl':
     name        => $scl_name,
     descr       => $scl_descr,
