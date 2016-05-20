@@ -26,6 +26,7 @@ Installs and Enables YUM repositories
  - [Sensu](https://sensuapp.org)
  - [Erlang Solutions](https://www.erlang-solutions.com/)
  - [Powerstack](http://powerstack.org)
+ - [SoftwareCollections.org SIG](https://www.softwarecollections.org/en/)
 
 ## Module Description
 
@@ -62,4 +63,6 @@ include yumrepo::scl
 include yumrepo::sensu
 include yumrepo::erlang_solutions
 include yumrepo::powerstack
+include yumrepo::sclo
 ````
+
