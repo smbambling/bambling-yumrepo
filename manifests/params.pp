@@ -156,11 +156,19 @@ class yumrepo::params {
   $erlang_solutions_exclude     = absent
   $erlang_solutions_descr       = 'Erlang-Solutions $releasever - $basearch'
 
-  # Sensu Repo Parameters
+  # Powerstack Repo Parameters
   $powerstack_url         = "http://download.powerstack.org/${os_maj_release}/${::architecture}"
   $powerstack_enabled     = '1'
   $powerstack_gpgcheck    = '0'
   $powerstack_includepkgs = absent
   $powerstack_exclude     = absent
   $powerstack_descr       = 'Powerstack $releasever - $basearch'
+
+  # SoftareCollections.org Repo Parameters
+  $sclo_url         = "http://mirror.centos.org/centos/${os_maj_release}/sclo/${::architecture}/rh"
+  $sclo_enabled     = '1'
+  $sclo_gpgcheck    = '1'
+  $sclo_includepkgs = absent
+  $sclo_exclude     = absent
+  $sclo_descr       = 'SoftwareCollectionsOrg $releasever - $basearch'
 }
