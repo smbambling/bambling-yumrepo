@@ -18,6 +18,7 @@ class yumrepo::params {
   $scl_descr       = 'CentOS-$releasever - SCL'
 
   # RPMFORGE Parameters
+  $rpmforge_name        = 'rpmforge'
   $rpmforge_url         = "http://apt.sw.be/redhat/el${os_maj_release}/\$basearch/rpmforge"
   $rpmforge_enabled     = '1'
   $rpmforge_gpgcheck    = '1'
@@ -25,7 +26,7 @@ class yumrepo::params {
   $rpmforge_exclude     = absent
   $rpmforge_descr       = "Extra Packages for Enterprise Linux ${os_maj_release} - \$basearch"
   $rpmforge_mirrorlist  = "http://mirrorlist.repoforge.org/el${os_maj_release}/mirrors-rpmforge"
-  
+
   # EPEL Parameters
   $epel_url         = "http://download.fedoraproject.org/pub/epel/${os_maj_release}/${::architecture}"
   $epel_enabled     = '1'

@@ -1,5 +1,6 @@
 # Add the Extra Packages for Enterprise Linux Repository
 class yumrepo::rpmforge (
+  $rpmforge_name        = $yumrepo::params::rpmforge_name,
   $rpmforge_url         = $yumrepo::params::rpmforge_url,
   $rpmforge_enabled     = $yumrepo::params::rpmforge_enabled,
   $rpmforge_gpgcheck    = $yumrepo::params::rpmforge_gpgcheck,
@@ -8,9 +9,9 @@ class yumrepo::rpmforge (
   $rpmforge_descr       = $yumrepo::params::rpmforge_descr,
   $rpmforge_mirrolist   = $yumrepo::params::rpmforge_mirrorlist,
 ) inherits yumrepo::params {
-  
+
   include yumrepo::cleanall
-  
+
   file { "/etc/pki/rpm-gpg/RPM-GPG-KEY-RPMFORGE-${yumrepo::params::os_maj_release}":
     ensure => present,
     owner  => 'root',
@@ -25,6 +26,7 @@ class yumrepo::rpmforge (
   }
 
   yumrepo { 'rpmforge':
+    name        => $rpmforge_name,
     descr       => $rpmforge_descr,
     baseurl     => $rpmforge_url,
     enabled     => $rpmforge_enabled,
