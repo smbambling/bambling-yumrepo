@@ -21,6 +21,7 @@ Installs and Enables YUM repositories
  - PuppetLabs
    - Release X
    - Puppet Collection 1
+ - RPMForge
  - Rsyslog V8
  - CentOS SCL
  - [Sensu](https://sensuapp.org)

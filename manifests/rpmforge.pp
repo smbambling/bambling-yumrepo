@@ -7,7 +7,7 @@ class yumrepo::rpmforge (
   $rpmforge_includepkgs = $yumrepo::params::rpmforge_includepkgs,
   $rpmforge_exclude     = $yumrepo::params::rpmforge_exclude,
   $rpmforge_descr       = $yumrepo::params::rpmforge_descr,
-  $rpmforge_mirrolist   = $yumrepo::params::rpmforge_mirrorlist,
+  $rpmforge_mirrorlist   = $yumrepo::params::rpmforge_mirrorlist,
 ) inherits yumrepo::params {
 
   include yumrepo::cleanall
