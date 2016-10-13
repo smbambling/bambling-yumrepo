@@ -1,11 +1,11 @@
 # Add the Extra Packages for Enterprise Linux Repository
 class yumrepo::collectd_ci (
-  $collectd_ci_url         = $yumrepo::params::collect_ci_url,
-  $collectd_ci_enabled     = $yumrepo::params::collect_ci_enabled,
-  $collectd_ci_gpgcheck    = $yumrepo::params::collect_ci_gpgcheck,
-  $collectd_ci_includepkgs = $yumrepo::params::collect_ci_includepkgs,
-  $collectd_ci_exclude     = $yumrepo::params::collect_ci_exclude,
-  $collectd_ci_descr       = $yumrepo::params::collect_ci_descr,
+  $collectd_ci_url         = $yumrepo::params::collectd_ci_url,
+  $collectd_ci_enabled     = $yumrepo::params::collectd_ci_enabled,
+  $collectd_ci_gpgcheck    = $yumrepo::params::collectd_ci_gpgcheck,
+  $collectd_ci_includepkgs = $yumrepo::params::collectd_ci_includepkgs,
+  $collectd_ci_exclude     = $yumrepo::params::collectd_ci_exclude,
+  $collectd_ci_descr       = $yumrepo::params::collectd_ci_descr,
 ) inherits yumrepo::params {
 
   include yumrepo::cleanall
@@ -20,7 +20,7 @@ class yumrepo::collectd_ci (
 
   yumrepo::rpm_gpg_key { "Collectd-CI":
     path   => "/etc/pki/rpm-gpg/RPM-GPG-KEY-Collectd-CI",
-    before => Yumrepo['collect_ci'],
+    before => Yumrepo['collectd_ci'],
   }
 
   yumrepo { 'collectd_ci':
