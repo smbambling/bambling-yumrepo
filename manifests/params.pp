@@ -172,4 +172,12 @@ class yumrepo::params {
   $sclo_includepkgs = absent
   $sclo_exclude     = absent
   $sclo_descr       = 'SoftwareCollectionsOrg $releasever - $basearch'
+
+  # Collectd-CI Repo Parameters
+  $collectd_ci_url         = "http://pkg.ci.collectd.org/rpm/collectd-5.6/epel-$releasever-$basearch"
+  $collectd_ci_enabled     = '1'
+  $collectd_ci_gpgcheck    = '1'
+  $collectd_ci_includepkgs = absent
+  $collectd_ci_exclude     = absent
+  $collectd_ci_descr       = "Collectd CI"
 }
